@@ -6,8 +6,8 @@ A processing sketch to render ℝ³ vectors in a 2D space.
 
 ## Usage  
 
-  By default, this sketch renders the 3 axis X, Y and Z rotated around the Y axis by 135°, and around the X axis by 35°.  
-  The user can interact with the window using some hotkeys:
+By default, this sketch renders the 3 axis X, Y and Z rotated around the Y axis by 135°, and around the X axis by 35°.  
+The user can interact with the window using some hotkeys:
   - `r` : start and stop generating random points within the specified scope.
   - `a` : hide and show the axis.
   - `l` : render the points as vectors (show a line connecting them with the Origin).
@@ -21,7 +21,7 @@ A processing sketch to render ℝ³ vectors in a 2D space.
   - `SHIFT` : rotate everything around the Z axis by -3,6°.
 
 ## Modularity
-My intent for this project is to create a generalized and modular system to project ℝ³ vectors in a 2D plane, and play around with them.  
+My intent with this project is to create a generalized and modular system to project ℝ³ vectors into a 2D plane, and play around with them.  
 ### Vectors in ℝ³
 Any ℝ³ vector is represented by an object of the `point` class; the `point` class contains a `PVector v` that stores the point's coordinates, and a bunch of methods, its rotation functions and its drawing functions.
 
