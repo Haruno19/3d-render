@@ -84,13 +84,16 @@ void draw_axis()
   point origin = points.get(0);
   stroke(255,0,0);
   points.get(3).drawline(origin, offset);
-  points.get(3).drawlabel("x", offset);
+  points.get(3).setLabel("x");
+  points.get(3).drawlabel(points.get(1));
   stroke(0,0,255);
   points.get(4).drawline(origin, offset);
-  points.get(4).drawlabel("y", offset);
+  points.get(4).setLabel("y");
+  points.get(4).drawlabel(points.get(1));
   stroke(0,255,0);
   points.get(5).drawline(origin, offset);
-  points.get(5).drawlabel("z", offset);
+  points.get(5).setLabel("z");
+  points.get(5).drawlabel(points.get(1));
   stroke(st_color);
 }
 
@@ -108,6 +111,16 @@ void draw_all()
        stroke(st_color);
      }
   }
+}
+
+///*** Functions Drawinf functions ***///
+void r3_line(PVector p0, PVector dir, String tag)
+{
+  //r = (a, b, c) + t(x, y, z)
+  add_point(new point(p0.x+dir.x*gen_dims, p0.y+dir.y*gen_dims, p0.z+dir.z*gen_dims));
+  add_point(new point(p0.x+dir.x*-gen_dims, p0.y+dir.y*-gen_dims, p0.z+dir.z*-gen_dims));
+  points.get(points.size()-2).setAttachment(points.size()-1);
+  points.get(points.size()-2).setLabel(tag);
 }
 
 
@@ -140,6 +153,11 @@ void initialize()
   //rotating the axis
   rotate_all_y(135f);
   rotate_all_x(35f);
+  
+  //bisector lines
+  r3_line(new PVector(0, 0, 0), new PVector(1, 1, 0), "b1");
+  r3_line(new PVector(0, 0, 0), new PVector(1, 0, 1), "b2"); 
+  r3_line(new PVector(0, 0, 0), new PVector(0, 1, 1), "b3"); 
 }
 
 //rotates all points starting from the fourth one (the first axis)
@@ -198,10 +216,24 @@ void remove_all()
 public class point
 {
   PVector v;
+  int attach;
+  String label;
   
   point(float _x, float _y, float _z)
   {
     v = new PVector(_x, -_y, _z);
+    attach=-1;
+    label="";
+  }
+  
+  void setAttachment(int _index)
+  {
+    attach=_index;
+  }
+  
+  void setLabel(String _label)
+  {
+    label=_label;
   }
   
   
@@ -229,6 +261,10 @@ public class point
   void drawpoint(point _offset)
   {
     point(v.x+_offset.v.x, v.y+_offset.v.y);
+    if(attach>-1)
+      this.drawline(points.get(attach), points.get(1));
+    if(label != "")
+      this.drawlabel(points.get(1));
   }
   
   void drawline(point _p, point _offset)
@@ -236,9 +272,9 @@ public class point
     line(v.x+_offset.v.x, v.y+_offset.v.y, _p.v.x+_offset.v.y, _p.v.y+_offset.v.y);
   }
   
-  void drawlabel(String s, point _offset)
+  void drawlabel(point _offset)
   {
-    text(s, v.x+_offset.v.x, v.y+_offset.v.y);
+    text(label, v.x+_offset.v.x, v.y+_offset.v.y);
   }
   
 }
