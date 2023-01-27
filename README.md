@@ -10,9 +10,10 @@ By default, this sketch renders the 3 axis X, Y and Z rotated around the Y axis 
 The user can interact with the window using some hotkeys:
   - `r` : start and stop generating random points within the specified scope.
   - `a` : hide and show the axis.
+  - `o` : hide and show the origin.
   - `l` : render the points as vectors (show a line connecting them with the Origin).
   - `c` : delete all points except the axis and the other fundamental vectors.
-  - `o` : reset to default values.
+  - `i` : reset to default values.
   - `ARROW UP` : rotate everything around the X axis by 3,6°.
   - `ARROW DOWN` : rotate everything around the X axis by -3,6°.
   - `ARROW LEFT` : rotate everything around the Y axis by 3,6°.
