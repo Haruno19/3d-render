@@ -31,10 +31,9 @@ For the purpose of keeping it all simple, there's only one ArrayList structure `
 This means of course, that `points` stores also fundamental points, such as:
 - `[index 0]` the Origin vector 
 - `[index 1]` the Offset vecotr, that is the vector containing the X and Y offset to logically "move" the origin of reference to the center of the window, instead of the default top-left conrner
-- `[index 2]` the Rotation vector, a vector which purpose is to take account of all the rotation that occour in the system, in order to rotate new points accordingly
-- `[index 3]` the X Axis
-- `[index 4]` the Y Axis
-- `[index 5]` the Z Axis
+- `[index 2]` the X Axis
+- `[index 3]` the Y Axis
+- `[index 4]` the Z Axis
 I believe this design choice significantly reduces complexity by removing the need for other global variables.
 
 ## Goal
