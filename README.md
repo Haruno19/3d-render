@@ -14,12 +14,35 @@ The user can interact with the window using some hotkeys:
   - `l` : render the points as vectors (show a line connecting them with the Origin).
   - `c` : delete all points except the axis and the other fundamental vectors.
   - `i` : reset to default values.
+  - `u` : reads input form `desk.txt` file.
   - `ARROW UP` : rotate everything around the X axis by 3,6°.
   - `ARROW DOWN` : rotate everything around the X axis by -3,6°.
   - `ARROW LEFT` : rotate everything around the Y axis by 3,6°.
   - `ARROW RIGHT` : rotate everything around the Y axis by -3,6°.
   - `CONTROL` : rotate everything around the Z axis by 3,6°.
   - `SHIFT` : rotate everything around the Z axis by -3,6°.
+
+### Runtime User Inputs - _Desk_
+
+The user can interact with the 3D system and add objects to it, for now either _lines_ or _points_. 
+How? That's simple! Just by editing a txt file! Place in the `cdw\desk.txt` file all the instructions you need. 
+
+### Instruction set
+- `point X Y Z [Att Lab]`  
+The point instruction adds a point to the 3D space.  
+This instruction takes up to 5 arguments:  
+  - `X`, `Y` and `Z` are floats, they represent the absolute coordinates of the point you want to add.  
+  - `Att` is an [optional] intager, it representes the index of the point you want to attach to this new point. Index 0 means no attachment, index 1 is the first point in the file. You cannot attach a point to fundamental vectors. 
+  - `Lab` is an [optional] string, it representes the label of the point.
+- `line A B C VX VY VZ [Lab]`  
+The line instruction adds a line to the 3D space.  
+A line in ℝ³ is a set of points determinted by a point $(a, b, c)$ and a directional vector $v = (x, y, z)$ as such ${(x, y, z) = (a, b, c) + tv}$.  
+This instruction takes up to 7 arguments:  
+  - `A`, `B` and `C` are floats, they represents the coordinates of the point $P$
+  - `VX`, `VY` and `VZ` are floats, they represents the compontents of the directional vector $v$
+  - `Lab` is an [optional] string, it representes the label of the point.
+  
+Please have a look at the [Desk Example section](https://github.com/Haruno19/3d-render/edit/main/README.md#desk-example).
 
 ## Modularity
 My intent with this project is to create a generalized and modular system to project ℝ³ vectors into a 2D plane, and play around with them.  
@@ -39,5 +62,22 @@ I believe this design choice significantly reduces complexity by removing the ne
 ## Goal
 My goal with this project is to keep adding new features, like rendering function graphs or shapes, and creating a full fledged ℝ³ environemnt.
 
+## Desk Example
+Here's an example of _desk_:  
+
+<table><tr>
+<td>
+  <code>point 75 75 0 3 p0</code><br>
+  <code>point 0 75 -90 1 p1</code><br>
+  <code>point 175 175 30 2 p2</code><br>
+  <code>line 50 50 50 2 3 2 r1</code>
+</td>
+<td>
+  <img width="400" align="left" alt="Screenshot 2023-01-27 at 17 21 46" src="https://user-images.githubusercontent.com/61376940/215144163-2b13a30f-9cf3-4931-bade-6756ac2af021.png"> 
+</td>
+</tr></table>
+
+
+  
 ## Demo
 https://user-images.githubusercontent.com/61376940/213522787-46e1ab07-3b53-4a7f-8b50-fe505463039f.mov
