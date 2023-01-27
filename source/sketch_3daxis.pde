@@ -12,6 +12,7 @@ int pc = 0; //stores the last read instruction
 //** base structures **//
 //list containing all the points. First 6 are fundamental vectors 
 ArrayList<point> points;
+StringList rotation;
 //array of flags
 //DrawAxis, DrawOrigin, GeneratePoints, DrawLines
 Boolean flags[] = new Boolean[4];
@@ -125,18 +126,18 @@ void draw_env()
 void draw_axis()
 {
   stroke(255,0,0);
-  points.get(3).drawpoint(1);
+  points.get(2).drawpoint(1);
   stroke(0,0,255);
-  points.get(4).drawpoint(1);
+  points.get(3).drawpoint(1);
   stroke(0,255,0);
-  points.get(5).drawpoint(1);
+  points.get(4).drawpoint(1);
   stroke(st_color);
 }
 
 void draw_all()
 {
   point origin = points.get(0);
-  for (int i = 6; i < points.size(); i++)
+  for (int i = 5; i < points.size(); i++)
   {
      points.get(i).drawpoint(1);
      if(flags[3])
@@ -164,6 +165,7 @@ void r3_line(PVector p0, PVector dir, String tag)
 void initialize()
 {
   pc=0;
+  rotation = new StringList();
   points = new ArrayList<point>(); 
   flags[0] = true;  //DrawAxis
   flags[1] = false; //DrawOrigin
@@ -184,16 +186,13 @@ void initialize()
   z_axis.setLabel("z");
   //offest vector to offset the origin at the center of the window
   point offset = new point(float(width/2), -float(height/2), 0);
-  //vector that accounts to all the rotation occoured
-  point rotation = new point(0, 0, 0);
   
   //adding the 6 fundamental vectors to the list
   points.add(origin);   //0
   points.add(offset);   //1
-  points.add(rotation); //2
-  points.add(x_axis);   //3
-  points.add(y_axis);   //4
-  points.add(z_axis);   //5
+  points.add(x_axis);   //2
+  points.add(y_axis);   //3
+  points.add(z_axis);   //4
   
   //rotating the axis
   rotate_all_y(135f);
@@ -208,42 +207,57 @@ void initialize()
 //rotates all points starting from the fourth one (the first axis)
 void rotate_all_y(float theta)
 {
-  point rotation = points.get(2);
-  for (int i = 3; i < points.size(); i++)
+  //point rotation = points.get(2);
+  for (int i = 2; i < points.size(); i++)
   {
      points.get(i).rotate_y(theta);
   }
-  rotation.v.set(rotation.v.x, rotation.v.y+theta, rotation.v.z);
+  rotation.append("y"+theta);
 }
 
 void rotate_all_x(float theta)
 {
-  point rotation = points.get(2);
-  for (int i = 3; i < points.size(); i++)
+  for (int i = 2; i < points.size(); i++)
   {
      points.get(i).rotate_x(theta);
   }
-  rotation.v.set(rotation.v.x+theta, rotation.v.y, rotation.v.z);
+  rotation.append("x"+theta);
 }
 
 void rotate_all_z(float theta)
 {
-  point rotation = points.get(2);
-  for (int i = 3; i < points.size(); i++)
+  for (int i = 2; i < points.size(); i++)
   {
      points.get(i).rotate_z(theta);
   }
-  rotation.v.set(rotation.v.x, rotation.v.y, rotation.v.z+theta);
+  //points.get(2).v.set(points.get(2).v.x, points.get(2).v.y, points.get(2).v.z+theta);
+  rotation.append("z"+theta);
 }
 
 //each new added point gets rotated according to the current rotation values
 void add_point(point _p)
 {
-  point rotation = points.get(2);
-  _p.rotate_y(rotation.v.y);
-  _p.rotate_z(rotation.v.z);
-  _p.rotate_x(rotation.v.x);
+  rotate_absolute(_p);
   points.add(_p);
+}
+
+void rotate_absolute(point _p)
+{
+  for(int i=0;i<rotation.size();i++)
+  {
+    switch(rotation.get(i).charAt(0))
+    {
+      case 'x':
+        _p.rotate_x(float(rotation.get(i).substring(1)));
+        break;
+      case 'y':
+        _p.rotate_y(float(rotation.get(i).substring(1)));
+        break;
+      case 'z':
+        _p.rotate_z(float(rotation.get(i).substring(1)));
+        break;
+    }
+  }
 }
 
 //deletes all points aside from the 6 foundamental vectors
