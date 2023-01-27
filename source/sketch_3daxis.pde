@@ -81,17 +81,11 @@ void draw_env()
 void draw_axis()
 {
   stroke(255,0,0);
-  points.get(3).drawline(0, 1);
-  points.get(3).setLabel("x");
-  points.get(3).drawlabel(1);
+  points.get(3).drawpoint(1);
   stroke(0,0,255);
-  points.get(4).drawline(0, 1);
-  points.get(4).setLabel("y");
-  points.get(4).drawlabel(1);
+  points.get(4).drawpoint(1);
   stroke(0,255,0);
-  points.get(5).drawline(0, 1);
-  points.get(5).setLabel("z");
-  points.get(5).drawlabel(1);
+  points.get(5).drawpoint(1);
   stroke(st_color);
 }
 
@@ -136,6 +130,12 @@ void initialize()
   point x_axis = new point(AxisLength,0,0);  
   point y_axis = new point(0,AxisLength,0);
   point z_axis = new point(0,0,AxisLength);  
+  x_axis.setAttachment(0);
+  y_axis.setAttachment(0);
+  z_axis.setAttachment(0);
+  x_axis.setLabel("x");
+  y_axis.setLabel("y");
+  z_axis.setLabel("z");
   //offest vector to offset the origin at the center of the window
   point offset = new point(float(width/2), -float(height/2), 0);
   //vector that accounts to all the rotation occoured
@@ -154,9 +154,9 @@ void initialize()
   rotate_all_x(35f);
   
   //bisector lines
-  r3_line(0, new PVector(1, 1, 0), "b1");
-  r3_line(0, new PVector(1, 0, 1), "b2"); 
-  r3_line(0, new PVector(0, 1, 1), "b3"); 
+  //r3_line(0, new PVector(1, 1, 0), "b1");
+  //r3_line(0, new PVector(1, 0, 1), "b2"); 
+  //r3_line(0, new PVector(0, 1, 1), "b3"); 
 }
 
 //rotates all points starting from the fourth one (the first axis)
