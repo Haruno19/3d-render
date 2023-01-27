@@ -7,6 +7,7 @@ int text_size = 16;
 int bg_color = 0;
 int st_color = 255;
 int line_color = 200;
+int pc = 0; //stores the last read instruction
 
 //** base structures **//
 //list containing all the points. First 6 are fundamental vectors 
@@ -33,7 +34,7 @@ void draw()
 }
 
 
-/* Hotkey management */
+/* User Input management */
 void keyPressed()
 {
   if(key == 'c')         //clear all
@@ -46,8 +47,10 @@ void keyPressed()
     flags[1] = !flags[1];
   else if(key == 'r')    //GeneratePoints
     flags[2] = !flags[2];
-  else if(key == 'l')
+  else if(key == 'l')    //DrawLines
     flags[3] = !flags[3];
+  else if(key == 'u')    //ReadFromFile
+    readFromFile();
   else if(key == CODED)  //Rotation
   {
     if(keyCode == UP)
@@ -65,6 +68,43 @@ void keyPressed()
   }
   background(bg_color);
   draw_env();
+}
+
+void readFromFile()
+{
+  String[] _instr = loadStrings("desk.txt"), instr;
+  for(int i=pc; i<_instr.length; i++)
+  {
+    instr = split(_instr[i], ' '); 
+    switch(instr[0])
+    {
+      case "point":
+        parse_point(reverse(shorten(reverse(instr))));  //[point] [x] [y] [z] -> [z] [y] [x] [point] -> [z] [y] [x] -> [x] [y] [z]
+        break;
+      case "line":
+        parse_line(reverse(shorten(reverse(instr))));
+        break;
+      default:
+        println("Error at line "+pc);
+    }
+  }
+}
+
+
+void parse_point(String[] point)
+{
+  if(point.length < 3)
+  {
+    println("Error at line "+pc);
+    return;
+  }
+  
+  add_point(new point(float(point[0]), float(point[1]), float(point[2])));
+}
+
+void parse_line(String[] line)
+{
+  
 }
 
 
@@ -119,9 +159,11 @@ void r3_line(PVector p0, PVector dir, String tag)
   points.get(points.size()-2).setLabel(tag);
 }
 
+
 ///*** Environment Management Functions ***///
 void initialize()
 {
+  pc=0;
   points = new ArrayList<point>(); 
   flags[0] = true;  //DrawAxis
   flags[1] = false; //DrawOrigin
@@ -202,7 +244,6 @@ void add_point(point _p)
   _p.rotate_z(rotation.v.z);
   _p.rotate_x(rotation.v.x);
   points.add(_p);
-  println(_p.v);
 }
 
 //deletes all points aside from the 6 foundamental vectors
