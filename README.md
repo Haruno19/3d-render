@@ -11,6 +11,7 @@ The user can interact with the window using some hotkeys:
   - `r` : start and stop generating random points within the specified scope.
   - `a` : hide and show the axis.
   - `o` : hide and show the origin.
+  - `d` : switches between dark and light mode.
   - `l` : render the points as vectors (show a line connecting them with the Origin).
   - `c` : delete all points except the axis and the other fundamental vectors.
   - `i` : reset to default values.
