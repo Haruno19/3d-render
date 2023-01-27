@@ -12,8 +12,8 @@ int line_color = 200;
 //list containing all the points. First 6 are fundamental vectors 
 ArrayList<point> points;
 //array of flags
-//PrintAxis, GeneratePoints, DrawLines
-Boolean flags[] = new Boolean[3];
+//DrawAxis, DrawOrigin, GeneratePoints, DrawLines
+Boolean flags[] = new Boolean[4];
 
 void setup()
 {
@@ -38,14 +38,16 @@ void keyPressed()
 {
   if(key == 'c')         //clear all
     remove_all();
-  else if(key == 'o')    //restore to default settings
+  else if(key == 'i')    //restore to default settings
     initialize();
   else if(key == 'a')    //DrawAxis
     flags[0] = !flags[0];
-  else if(key == 'r')    //GeneratePoints
+  else if(key == 'o')    //DrawOrigin
     flags[1] = !flags[1];
-  else if(key == 'l')
+  else if(key == 'r')    //GeneratePoints
     flags[2] = !flags[2];
+  else if(key == 'l')
+    flags[3] = !flags[3];
   else if(key == CODED)  //Rotation
   {
     if(keyCode == UP)
@@ -69,9 +71,11 @@ void keyPressed()
 ///*** Global Drawing Functions ***///
 void draw_env()
 {
-  if(flags[0])
+  if(flags[0]) //DrawAxis
     draw_axis();
-  if(flags[1])
+  if(flags[1]) //DrawOrigin
+    points.get(0).drawpoint(1);
+  if(flags[2]) //GeneratePoints
     add_point(new point (random(gen_dims + gen_dims)-gen_dims, 
                          random(gen_dims + gen_dims)-gen_dims, 
                          random(gen_dims + gen_dims)-gen_dims));
@@ -95,7 +99,7 @@ void draw_all()
   for (int i = 6; i < points.size(); i++)
   {
      points.get(i).drawpoint(1);
-     if(flags[2])
+     if(flags[3])
      {
        stroke(line_color);
        origin.drawline(i, 1);
@@ -104,7 +108,7 @@ void draw_all()
   }
 }
 
-///*** Functions Drawinf functions ***///
+///*** Shapes ***///
 void r3_line(PVector p0, PVector dir, String tag)
 {
   //r = (a, b, c) + t(x, y, z)
@@ -115,16 +119,17 @@ void r3_line(PVector p0, PVector dir, String tag)
   points.get(points.size()-2).setLabel(tag);
 }
 
-
 ///*** Environment Management Functions ***///
 void initialize()
 {
   points = new ArrayList<point>(); 
-  flags[0] = true;  //PrintAxis
-  flags[1] = false; //GeneratePoints
-  flags[2] = false; //DrawLines
+  flags[0] = true;  //DrawAxis
+  flags[1] = false; //DrawOrigin
+  flags[2] = false; //GeneratePoints
+  flags[3] = false; //DrawLines
   
   point origin = new point(0, 0, 0);  
+  origin.setLabel("o");
   //fundamental axis vectors
   point x_axis = new point(AxisLength,0,0);  
   point y_axis = new point(0,AxisLength,0);
@@ -279,5 +284,4 @@ public class point
     point _offset = points.get(off_ind);
     text(label, v.x+_offset.v.x, v.y+_offset.v.y);
   }
-  
 }
