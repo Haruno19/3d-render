@@ -106,7 +106,7 @@ void parse_point(String[] point)
   if(point.length > 3 && int(point[3])>0)   //if it has a fourth value, that value is its attachment
     np.setAttachment(int(point[3])+4);    //the attachment is relative to the points added in the text file 
                                           //1 is the first point added in the text file, ad 1+4 is its index in <points>
-  if(point.length == 5)      //if it has 5 values, the fifth one is its label
+  if(point.length > 4)      //if it has 5 values, the fifth one is its label
     np.setLabel(point[4]);
     
   add_point(np);  
@@ -116,7 +116,15 @@ void parse_point(String[] point)
 
 void parse_line(String[] line)
 {
+  if(line.length < 6) //a lines needs at least 5 values: P(X, Y, Z) and v(X, Y Z)
+  {
+    println("Error at line "+pc);
+    return;
+  }
   
+  r3_line(new PVector(float(line[0]), float(line[1]), float(line[2])), 
+          new PVector(float(line[3]), float(line[4]), float(line[5])), 
+          (line.length > 6) ? line[6] : "");
 }
 
 
