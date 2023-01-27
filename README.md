@@ -4,14 +4,14 @@ A processing sketch to render ℝ³ vectors in a 2D space.
 
 <img width="32%" alt="Screenshot 2023-01-19 at 18 50 22" src="https://user-images.githubusercontent.com/61376940/213523701-3229a566-d5a7-4027-b941-3558ed3f9b88.png"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 10" src="https://user-images.githubusercontent.com/61376940/213523677-a5dacf1f-8c1b-4add-a194-6c552a8308b4.png"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 20" src="https://user-images.githubusercontent.com/61376940/213523692-253090af-8e97-49c8-b60d-6202b4390635.png">
 
-## Usage  
+# Usage  
 
 By default, this sketch renders the 3 axis X, Y and Z rotated around the Y axis by 135°, and around the X axis by 35°.  
 The user can interact with the window using some hotkeys:
   - `r` : start and stop generating random points within the specified scope.
   - `a` : hide and show the axis.
   - `o` : hide and show the origin.
-  - `d` : switches between dark and light mode.
+  - `d` : switches between themes.
   - `l` : render the points as vectors (show a line connecting them with the Origin).
   - `c` : delete all points except the axis and the other fundamental vectors.
   - `i` : reset to default values.
@@ -23,12 +23,12 @@ The user can interact with the window using some hotkeys:
   - `CONTROL` : rotate everything around the Z axis by 3,6°.
   - `SHIFT` : rotate everything around the Z axis by -3,6°.
 
-### Runtime User Inputs - _Desk_
+## Runtime User Inputs - _Desk_
 
 The user can interact with the 3D system and add objects to it, for now either _lines_ or _points_. 
 How? That's simple! Just by editing a txt file! Place in the `cdw\desk.txt` file all the instructions you need. 
 
-### Instruction set
+## Instruction set
 - `point X Y Z [Att Lab]`  
 The point instruction adds a point to the 3D space.  
 This instruction takes up to 5 arguments:  
@@ -45,12 +45,12 @@ This instruction takes up to 7 arguments:
   
 Please have a look at the [Desk Example section](https://github.com/Haruno19/3d-render/edit/main/README.md#desk-example).
 
-## Modularity
+# Modularity
 My intent with this project is to create a generalized and modular system to project ℝ³ vectors into a 2D plane, and play around with them.  
 ### Vectors in ℝ³
 Any ℝ³ vector is represented by an object of the `point` class; the `point` class contains a `PVector v` that stores the point's coordinates, and a bunch of methods, its rotation functions and its drawing functions.
 
-### Main structure
+## Main structure
 For the purpose of keeping it all simple, there's only one ArrayList structure `points` that stores every ℝ³ vector.  
 This means of course, that `points` stores also fundamental points, such as:
 - `[index 0]` the Origin vector 
@@ -60,10 +60,10 @@ This means of course, that `points` stores also fundamental points, such as:
 - `[index 4]` the Z Axis
 I believe this design choice significantly reduces complexity by removing the need for other global variables.
 
-## Goal
+# Goal
 My goal with this project is to keep adding new features, like rendering function graphs or shapes, and creating a full fledged ℝ³ environemnt.
 
-## Desk Example
+# Desk Example
 Here's an example of _desk_:  
 
 <table><tr>
@@ -78,7 +78,16 @@ Here's an example of _desk_:
 </td>
 </tr></table>
 
+# Themes
+<table><tr>
+<td>
+  <h3 align="center">Chalkboard</h3><img alt="Screenshot 2023-01-27 at 21 53 48" src="https://user-images.githubusercontent.com/61376940/215195370-5d74c921-975d-41f4-bdba-f9ad149f4c17.png">
+</td>
+<td>
+  <h3 align="center">Papersheet</h3><img alt="Screenshot 2023-01-27 at 21 53 14" src="https://user-images.githubusercontent.com/61376940/215195400-061a9b08-6b48-47da-85bc-e3997165c939.png">
+</td>
+</tr></table>
 
   
-## Demo
+# Demo
 https://user-images.githubusercontent.com/61376940/215154314-eb326c37-a95e-4946-baa4-356dee113c8d.mov
