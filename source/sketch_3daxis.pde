@@ -80,46 +80,45 @@ void draw_env()
 
 void draw_axis()
 {
-  point offset = points.get(1);
-  point origin = points.get(0);
   stroke(255,0,0);
-  points.get(3).drawline(origin, offset);
+  points.get(3).drawline(0, 1);
   points.get(3).setLabel("x");
-  points.get(3).drawlabel(points.get(1));
+  points.get(3).drawlabel(1);
   stroke(0,0,255);
-  points.get(4).drawline(origin, offset);
+  points.get(4).drawline(0, 1);
   points.get(4).setLabel("y");
-  points.get(4).drawlabel(points.get(1));
+  points.get(4).drawlabel(1);
   stroke(0,255,0);
-  points.get(5).drawline(origin, offset);
+  points.get(5).drawline(0, 1);
   points.get(5).setLabel("z");
-  points.get(5).drawlabel(points.get(1));
+  points.get(5).drawlabel(1);
   stroke(st_color);
 }
 
 void draw_all()
 {
-  point offset = points.get(1);
   point origin = points.get(0);
   for (int i = 6; i < points.size(); i++)
   {
-     points.get(i).drawpoint(offset);
+     points.get(i).drawpoint(1);
      if(flags[2])
      {
        stroke(line_color);
-       origin.drawline(points.get(i), offset);
+       origin.drawline(i, 1);
        stroke(st_color);
      }
   }
 }
 
 ///*** Functions Drawinf functions ***///
-void r3_line(PVector p0, PVector dir, String tag)
+void r3_line(int p0_ind, PVector dir, String tag)
 {
-  //r = (a, b, c) + t(x, y, z)
-  add_point(new point(p0.x+dir.x*gen_dims, p0.y+dir.y*gen_dims, p0.z+dir.z*gen_dims));
-  add_point(new point(p0.x+dir.x*-gen_dims, p0.y+dir.y*-gen_dims, p0.z+dir.z*-gen_dims));
-  points.get(points.size()-2).setAttachment(points.size()-1);
+  //r = p0<a, b, c> + t(x, y, z)
+  point p0 = points.get(p0_ind);
+  add_point(new point(p0.v.x+dir.x*gen_dims, p0.v.y+dir.y*gen_dims, p0.v.z+dir.z*gen_dims));
+  add_point(new point(p0.v.x+dir.x*-gen_dims, p0.v.y+dir.y*-gen_dims, p0.v.z+dir.z*-gen_dims));
+  points.get(points.size()-2).setAttachment(p0_ind);
+  points.get(points.size()-1).setAttachment(p0_ind);
   points.get(points.size()-2).setLabel(tag);
 }
 
@@ -155,9 +154,9 @@ void initialize()
   rotate_all_x(35f);
   
   //bisector lines
-  r3_line(new PVector(0, 0, 0), new PVector(1, 1, 0), "b1");
-  r3_line(new PVector(0, 0, 0), new PVector(1, 0, 1), "b2"); 
-  r3_line(new PVector(0, 0, 0), new PVector(0, 1, 1), "b3"); 
+  r3_line(0, new PVector(1, 1, 0), "b1");
+  r3_line(0, new PVector(1, 0, 1), "b2"); 
+  r3_line(0, new PVector(0, 1, 1), "b3"); 
 }
 
 //rotates all points starting from the fourth one (the first axis)
@@ -258,22 +257,26 @@ public class point
   
   
   /*** Drawing Functions ***/
-  void drawpoint(point _offset)
+  void drawpoint(int off_ind)
   {
+    point _offset = points.get(off_ind);
     point(v.x+_offset.v.x, v.y+_offset.v.y);
     if(attach>-1)
-      this.drawline(points.get(attach), points.get(1));
+      this.drawline(attach, 1);
     if(label != "")
-      this.drawlabel(points.get(1));
+      this.drawlabel(1);
   }
   
-  void drawline(point _p, point _offset)
+  void drawline(int p_ind, int off_ind)
   {
+    point _offset = points.get(off_ind);
+    point _p = points.get(p_ind);
     line(v.x+_offset.v.x, v.y+_offset.v.y, _p.v.x+_offset.v.y, _p.v.y+_offset.v.y);
   }
   
-  void drawlabel(point _offset)
+  void drawlabel(int off_ind)
   {
+    point _offset = points.get(off_ind);
     text(label, v.x+_offset.v.x, v.y+_offset.v.y);
   }
   
