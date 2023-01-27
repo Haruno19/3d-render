@@ -105,14 +105,13 @@ void draw_all()
 }
 
 ///*** Functions Drawinf functions ***///
-void r3_line(int p0_ind, PVector dir, String tag)
+void r3_line(PVector p0, PVector dir, String tag)
 {
-  //r = p0<a, b, c> + t(x, y, z)
-  point p0 = points.get(p0_ind);
-  add_point(new point(p0.v.x+dir.x*gen_dims, p0.v.y+dir.y*gen_dims, p0.v.z+dir.z*gen_dims));
-  add_point(new point(p0.v.x+dir.x*-gen_dims, p0.v.y+dir.y*-gen_dims, p0.v.z+dir.z*-gen_dims));
-  points.get(points.size()-2).setAttachment(p0_ind);
-  points.get(points.size()-1).setAttachment(p0_ind);
+  //r = (a, b, c) + t(x, y, z)
+  add_point(new point(p0.x+dir.x*gen_dims, p0.y+dir.y*gen_dims, p0.z+dir.z*gen_dims));
+  add_point(new point(p0.x+dir.x*-gen_dims, p0.y+dir.y*-gen_dims, p0.z+dir.z*-gen_dims));
+  points.get(points.size()-2).setAttachment(points.size()-1);
+  points.get(points.size()-1).setAttachment(points.size()-2);
   points.get(points.size()-2).setLabel(tag);
 }
 
@@ -154,9 +153,9 @@ void initialize()
   rotate_all_x(35f);
   
   //bisector lines
-  //r3_line(0, new PVector(1, 1, 0), "b1");
-  //r3_line(0, new PVector(1, 0, 1), "b2"); 
-  //r3_line(0, new PVector(0, 1, 1), "b3"); 
+  //r3_line(origin.v_abs, new PVector(1, 1, 0), "b1");
+  //r3_line(origin.v_abs, new PVector(1, 0, 1), "b2"); 
+  //r3_line(origin.v_abs, new PVector(0, 1, 1), "b3"); 
 }
 
 //rotates all points starting from the fourth one (the first axis)
@@ -214,13 +213,14 @@ void remove_all()
 ///*** Point Class ***//
 public class point
 {
-  PVector v;
+  PVector v, v_abs;
   int attach;
   String label;
   
   point(float _x, float _y, float _z)
   {
     v = new PVector(_x, -_y, _z);
+    v_abs = new PVector(v.x, v.y, v.z);
     attach=-1;
     label="";
   }
