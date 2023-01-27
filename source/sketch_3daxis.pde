@@ -6,7 +6,7 @@ int delay_ms = 100;
 int text_size = 16;
 int bg_color = 0;
 int st_color = 255;
-int line_color = 200;
+int line_color = 240;
 int pc = 0; //stores the last read instruction
 
 //** base structures **//
@@ -44,6 +44,8 @@ void keyPressed()
     exit();
   else if(key == 'i')    //restore to default settings
     initialize();
+  else if(key == 'd')
+    darkModeSwitch();
   else if(key == 'a')    //DrawAxis
     flags[0] = !flags[0];
   else if(key == 'o')    //DrawOrigin
@@ -71,6 +73,20 @@ void keyPressed()
   }
   background(bg_color);
   draw_env();
+}
+
+void darkModeSwitch()
+{
+  if(bg_color == 0)
+  {
+    bg_color = 240;
+    st_color = 75;
+    line_color = 100;
+  }else{
+    bg_color = 0;
+    st_color = 255;
+    line_color = 240;
+  }
 }
 
 void readFromFile()
@@ -125,6 +141,8 @@ void parse_line(String[] line)
   r3_line(new PVector(float(line[0]), float(line[1]), float(line[2])), 
           new PVector(float(line[3]), float(line[4]), float(line[5])), 
           (line.length > 6) ? line[6] : "");
+          
+  pc++;
 }
 
 
@@ -356,6 +374,7 @@ public class point
   
   void drawlabel(int off_ind)
   {
+    fill(st_color);
     point _offset = points.get(off_ind);
     text(label, v.x+_offset.v.x, v.y+_offset.v.y);
   }
