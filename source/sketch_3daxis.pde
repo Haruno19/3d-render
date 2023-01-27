@@ -186,6 +186,7 @@ void initialize()
   pc=0;
   rotation = new StringList();
   points = new ArrayList<point>(); 
+  System.gc();
   flags[0] = true;  //DrawAxis
   flags[1] = false; //DrawOrigin
   flags[2] = false; //GeneratePoints
