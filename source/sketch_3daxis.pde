@@ -10,7 +10,7 @@ int line_color = 200;
 int pc = 0; //stores the last read instruction
 
 //** base structures **//
-//list containing all the points. First 6 are fundamental vectors 
+//list containing all the points. First 5 are fundamental vectors 
 ArrayList<point> points;
 StringList rotation;
 //array of flags
@@ -40,6 +40,8 @@ void keyPressed()
 {
   if(key == 'c')         //clear all
     remove_all();
+  else if(key == 'q')    //exi
+    exit();
   else if(key == 'i')    //restore to default settings
     initialize();
   else if(key == 'a')    //DrawAxis
@@ -94,13 +96,22 @@ void readFromFile()
 
 void parse_point(String[] point)
 {
-  if(point.length < 3)
+  if(point.length < 3)  //a point needs at least 3 values: X Y and Z coordinates
   {
     println("Error at line "+pc);
     return;
   }
+  point np = new point(float(point[0]), float(point[1]), float(point[2]));
   
-  add_point(new point(float(point[0]), float(point[1]), float(point[2])));
+  if(point.length > 3 && int(point[3])>0)   //if it has a fourth value, that value is its attachment
+    np.setAttachment(int(point[3])+4);    //the attachment is relative to the points added in the text file 
+                                          //1 is the first point added in the text file, ad 1+4 is its index in <points>
+  if(point.length == 5)      //if it has 5 values, the fifth one is its label
+    np.setLabel(point[4]);
+    
+  add_point(np);  
+  
+  pc++;
 }
 
 void parse_line(String[] line)
@@ -230,7 +241,6 @@ void rotate_all_z(float theta)
   {
      points.get(i).rotate_z(theta);
   }
-  //points.get(2).v.set(points.get(2).v.x, points.get(2).v.y, points.get(2).v.z+theta);
   rotation.append("z"+theta);
 }
 
@@ -260,13 +270,14 @@ void rotate_absolute(point _p)
   }
 }
 
-//deletes all points aside from the 6 foundamental vectors
+//deletes all points aside from the 5 foundamental vectors
 void remove_all()
 {
-  for(int i = points.size()-1; i>5; i--)
+  for(int i = points.size()-1; i>4; i--)
   {
     points.remove(i);
   }
+  pc=0;
 }
 
 
