@@ -43,7 +43,7 @@ This instruction takes up to 7 arguments:
   - `VX`, `VY` and `VZ` are floats, they represents the compontents of the directional vector $v$
   - `Lab` is an [optional] string, it representes the label of the point.
   
-Please have a look at the [Desk Example section](https://github.com/Haruno19/3d-render/edit/main/README.md#desk-example).
+Please have a look at the [Desk Example section](https://github.com/Haruno19/3d-render#desk-example).
 
 # Modularity
 My intent with this project is to create a generalized and modular system to project ℝ³ vectors into a 2D plane, and play around with them.  
