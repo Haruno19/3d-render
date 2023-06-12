@@ -1,0 +1,4 @@
+point 75 75 0 3 p0
+point 0 75 -90 1 p1
+point 175 175 30 2 p2
+line 50 50 50 2 3 2 r1

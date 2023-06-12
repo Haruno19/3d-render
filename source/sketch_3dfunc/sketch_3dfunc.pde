@@ -136,12 +136,28 @@ void readFromFile()
 
 void parse_func(String[] _lambda)
 {
-  float[] lambda = new float[_lambda.length-1];
+  int limit=_lambda.length;
+  float z=0;
+  float[] lambda;
   
-  for(int i=0; i<_lambda.length-1; i++)
-    lambda[i] = float(_lambda[i]);
- 
-  y_function(float(_lambda[_lambda.length-1]), lambda);
+  if(_lambda.length == 0) 
+  {
+    println("Error at line "+pc);
+    return;
+  }
+  
+  if(_lambda[_lambda.length-1].charAt(0) == 'z')
+  {
+    limit = _lambda.length-1;
+    z = float(_lambda[_lambda.length-1].substring(2));
+  }
+
+    lambda = new float[limit];
+    
+    for(int i=0; i<limit; i++)
+      lambda[i] = float(_lambda[i]);
+  
+  y_function(z, lambda);
 }
 
 void parse_point(String[] point)
