@@ -42,7 +42,7 @@ void keyPressed()
 {
   if(key == 'c')         //clear all
     remove_all();
-  else if(key == 'q')    //exi
+  else if(key == 'q')    //exit
     exit();
   else if(key == 'i')    //restore to default settings
     initialize();
@@ -267,7 +267,7 @@ void y_function(float _z, float[] lambda)
          if((x>-limit)) //set the line to the current point from the previous one starting from the second
            np.setAttachment(points.size()-1);
          
-         if(x == 0f)
+         if(x >= 0f && x<= 0.6f)
            np.setLabel(_label);
          
          add_point(np);
