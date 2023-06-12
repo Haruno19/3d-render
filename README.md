@@ -106,7 +106,10 @@ Example of _Desk_ file:
   </tr>
   <tr>
     <td>
-      <code>3dfunc</code> only instruction set <i>function mode enabled</i>
+      <code>3dfunc</code> only instruction set
+    </td>
+    <td>
+       <i>Function mode view</i>
     </td>
   </tr>
   <tr>
