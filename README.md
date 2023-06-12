@@ -90,7 +90,7 @@ Example of _Desk_ file:
 <table>
   <tr>
     <td>
-      <code>Basic instruction set</code>
+      Basic instruction set
     </td>
   </tr>
   <tr>
@@ -106,7 +106,7 @@ Example of _Desk_ file:
   </tr>
   <tr>
     <td>
-      <code>3dfunc only instruction set</code>
+      <code>3dfunc</code> only instruction set <i>function mode enabled</i>
     </td>
   </tr>
   <tr>
