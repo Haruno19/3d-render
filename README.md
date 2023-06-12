@@ -33,6 +33,7 @@ The user can interact with the window using some hotkeys:
 
 ### [ _3dfunc rev. specific_ ]
   - `f` : enables _function mode_, resets the space to default values, then sets the rotation at 0° around any axis, thus facing the XY plane parallelly, with maximum zoom value
+  - `v` : hide and show labels globally
   - `1 ... 9` : sets the zoom to values from `1` (farthest away from the origin) to `9` (closest to the origin). Zoom values can be set at any time without resetting the space, every entity already rendered will immediately scale accordingly to the new zoom value  
 
 ## Runtime User Inputs - _Desk_
@@ -61,7 +62,10 @@ This instruction takes up to 7 arguments:
   The func instructions plots the graph of the single variable linear function defined in the following form: $y=a_nx^n + ... + a_0x^0 $.
   This instructions has a variable number of parameters:
   - `an ... a0` are floats, they represent the coefficient of the $x$. You need to specify at least one coefficient.
-  - `Z` is an [optional] float, it represents the costant $z$ value to plot the function to. If no `Z` value is specified, all the points will have their $z$ coordinate set to $0$.
+  - `Z` is an [optional] float, it represents the costant $z$ value to plot the function to. If no `Z` value is specified, all the points will have their $z$ coordinate set to $0$.  
+  
+  Each plotted function will show a label of its equation.  
+  Note that every function is plotted by calculating its $y=a_nx^n + ... + a_0x^0$ $\forall x \in [-200, +200)$ with $x=k \frac{3}{4}$ with $k \in \mathbb{N}$ (basically between $-200$ and $200$ every $0.75$). To change this behaviour, you can set your own values for the `limit` and `step` variables in the `void y_function(float _z, float[] lambda)` method.
 
 Please have a look at the [Desk Example section](https://github.com/Haruno19/3d-render#desk-example).
 
