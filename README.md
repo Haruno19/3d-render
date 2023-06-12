@@ -2,7 +2,7 @@
 
 A processing sketch to render ℝ³ vectors.
 
-<img width="32%" alt="Screenshot 2023-01-19 at 18 50 22" src="https://user-images.githubusercontent.com/61376940/213523701-3229a566-d5a7-4027-b941-3558ed3f9b88.png"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 10" src="https://user-images.githubusercontent.com/61376940/213523677-a5dacf1f-8c1b-4add-a194-6c552a8308b4.png"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 20" src="https://user-images.githubusercontent.com/61376940/213523692-253090af-8e97-49c8-b60d-6202b4390635.png">
+<img width="32%" alt="Screenshot 2023-01-19 at 18 50 22" src="https://user-images.githubusercontent.com/61376940/213523701-3229a566-d5a7-4027-b941-3558ed3f9b88.png"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 10" src="https://github.com/Haruno19/3d-render/assets/61376940/89a0a979-9270-41e5-8573-04d02b407235"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 20" src="https://user-images.githubusercontent.com/61376940/213523692-253090af-8e97-49c8-b60d-6202b4390635.png">
 
 # Versions
 
@@ -122,7 +122,7 @@ Every major functionality upgrade will come in as a separate revision of the ske
       <code>func 0.4 3</code><br>
     </td>
     <td>
-      <img width="400" align="left" alt="Screenshot 2023-01-27 at 17 21 46" src="https://github.com/Haruno19/3d-render/assets/61376940/db950303-f308-42d3-ade5-27f4e098fa1e"> 
+      <img width="400" align="left" alt="Screenshot 2023-01-27 at 17 21 46" src="https://github.com/Haruno19/3d-render/assets/61376940/e22ad7da-0603-4fe4-b248-4fa669a341dd"> 
     </td>
   </tr>
 </table>
@@ -133,7 +133,7 @@ Every major functionality upgrade will come in as a separate revision of the ske
   <h3 align="center">Chalkboard</h3><img alt="Screenshot 2023-01-27 at 21 53 48" src="https://user-images.githubusercontent.com/61376940/215195370-5d74c921-975d-41f4-bdba-f9ad149f4c17.png">
 </td>
 <td>
-  <h3 align="center">Papersheet</h3><img alt="Screenshot 2023-01-27 at 21 53 14" src="https://user-images.githubusercontent.com/61376940/215195400-061a9b08-6b48-47da-85bc-e3997165c939.png](https://github.com/Haruno19/3d-render/assets/61376940/da0f7d6b-2f62-49fb-9fed-c11ab4abf71c)">
+  <h3 align="center">Papersheet</h3><img alt="Screenshot 2023-01-27 at 21 53 14" src="https://user-images.githubusercontent.com/61376940/215195400-061a9b08-6b48-47da-85bc-e3997165c939.png">
 </td>
 </tr></table>
 
@@ -141,4 +141,10 @@ Every major functionality upgrade will come in as a separate revision of the ske
 # Demo
 https://user-images.githubusercontent.com/61376940/215154314-eb326c37-a95e-4946-baa4-356dee113c8d.mov
 
-##### _The demostration video shows all the functionalities included with the `3daxis` version only. Please refer to the Gallery section to see the functionalities specific to the `3dfunc` revision._
+##### _The above demostration video shows and overview of the functionalities included with the `3daxis` version of the sketch. Please refer to the Gallery section to see screenshots of the functionalities specific to the `3dfunc` revision._
+
+
+# Gallery
+<img width="32%" alt="Screenshot 2023-06-12 at 21 50 37" src="https://github.com/Haruno19/3d-render/assets/61376940/20a7c452-5bd0-4637-867e-c2c27ae2adfe"> <img width="32%" alt="Screenshot 2023-06-12 at 21 47 57" src="https://github.com/Haruno19/3d-render/assets/61376940/283d7872-7c0e-41b8-984e-d92827fc8ecf"> <img width="32%" alt="Screenshot 2023-06-12 at 21 46 36" src="https://github.com/Haruno19/3d-render/assets/61376940/f33c5922-55a3-47a4-82ca-959a16f70f09">
+<img width="32%" alt="Screenshot 2023-06-12 at 21 35 14" src="https://github.com/Haruno19/3d-render/assets/61376940/a1851f47-6d76-4ce5-9f48-bd36533a860a"> <img width="32%" alt="Screenshot 2023-06-12 at 22 12 35" src="https://github.com/Haruno19/3d-render/assets/61376940/c42c7706-d88a-4957-8516-f3d982882230"> <img width="32%" alt="Screenshot 2023-06-12 at 22 04 49" src="https://github.com/Haruno19/3d-render/assets/61376940/ac4cb9d1-e49c-4fdc-bc39-a60aa1c74691">
+
