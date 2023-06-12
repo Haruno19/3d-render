@@ -15,15 +15,15 @@ The following specifications are referred to both versions, each section will in
 # Usage  
 
 By default, this sketch renders the 3 axis X, Y and Z rotated around the Y axis by 135°, and around the X axis by 35°.  
-The user can interact with the window using some hotkeys:
-  - `r` : start and stop generating random points within the specified scope.
+You can interact with the space using the following hotkeys:
+  - `r` : start and stop generating random points within the a certain scope.
   - `a` : hide and show the axis.
   - `o` : hide and show the origin.
-  - `d` : switches between themes.
-  - `l` : render the points as vectors (show a line connecting them with the Origin).
+  - `d` : switch between themes.
+  - `l` : render the points as vectors (show a line connecting them with the origin).
   - `c` : delete all points except the axis and the other fundamental vectors.
   - `i` : reset to default values.
-  - `u` : reads input form `desk.txt` file.
+  - `u` : parse _Desk_ instructions.
   - `ARROW UP` : rotate everything around the X axis by 3,6°.
   - `ARROW DOWN` : rotate everything around the X axis by -3,6°.
   - `ARROW LEFT` : rotate everything around the Y axis by 3,6°.
@@ -31,16 +31,16 @@ The user can interact with the window using some hotkeys:
   - `CONTROL` : rotate everything around the Z axis by 3,6°.
   - `SHIFT` : rotate everything around the Z axis by -3,6°.
 
-### [ _3dfunc rev. specific_ ]
-  - `f` : enables _function mode_, resets the space to default values, then sets the rotation at 0° around any axis, thus facing the XY plane parallelly, with maximum zoom value
+#### [ _3dfunc rev. specific_ ]
   - `v` : hide and show labels globally
-  - `1 ... 9` : sets the zoom to values from `1` (farthest away from the origin) to `9` (closest to the origin). Zoom values can be set at any time without resetting the space, every entity already rendered will immediately scale accordingly to the new zoom value  
+  - `f` : enable _function mode_, resets the space to default values, then sets the rotation at 0° around every axis, thus facing the XY plane parallelly, with maximum zoom value
+  - `1 ... 9` : sets the zoom to a value from `1` (farthest away from the origin) to `9` (closest to the origin). Zoom values can be set at any time without resetting the space, every entity already on display will be scaled accordingly to the new zoom value  
 
 ## Runtime User Inputs - _Desk_
 
-You can interact with the 3D space at runtime by adding objects to it, either _lines_ or _points_.  
-To do that, write a _Desk_ file at `cdw\desk.txt`, and use the designated hotkey to load contents from it.  
-_Desk_ can be thought of as a decriptive languange made up of instructions and parameters that can be parsed by the render. Parameters are order-sensitive. A _Desk_ file must contain every instruction separated by a new line (empty lines are skipped). Bad syntaxt will result in an error message followed by the number of line where the error occourred. 
+You can interact with the 3D space at runtime by adding objects to it.
+To do so, you'll have to write a _Desk_ file at path `cdw\desk.txt`, and use the designated hotkey to load contents from it.  
+_Desk_ can be thought of as a decriptive languange made up of instructions and parameters that can be parsed by the rendering system. Parameters are order-sensitive. A _Desk_ file must contain every instruction separated by a new line (empty lines are skipped). Bad syntaxt will result in an error message followed by the number of line where the parsing error occourred. 
 
 ## Instruction set
 - `point X Y Z [Att Lab]`  
@@ -57,7 +57,7 @@ This instruction takes up to 7 arguments:
   - `VX`, `VY` and `VZ` are floats, they represents the compontents of the directional vector $v$
   - `Lab` is an [optional] string, it representes the label of the point.
 
-### [ _3dfunc rev. specific_ ]
+#### [ _3dfunc rev. specific_ ]
 - `func an ... a0 [z=Z]`  
   The func instructions plots the graph of the single variable linear function defined in the following form: $y=a_nx^n + ... + a_0x^0 $.
   This instructions has a variable number of parameters:
