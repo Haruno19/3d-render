@@ -7,8 +7,8 @@ A processing sketch to render ℝ³ vectors.
 # Versions
 
 You'll find two different versions of the sketch in the `source` folder: codename `3daxis` and codenme `3dfunc`.  
-- `3daxis` is the basic version that offers the capabilities to render simple concepts, points and lines, through the _Desk_ instructions, plus basic navigation functionalities. 
-- `3dfunc` is the latest revision, includes all the capabilities of the `3daxis` version, and the ability to define and plot _single variabile linear functions_ graphs through the _Desk_ instructions, plus enhanced navigation functionalities.  
+- `3daxis` is the basic version that offers the capabilities to render simple concepts, points and lines, through the _Desk_ instructions, with basic navigation functionalities. 
+- `3dfunc` is the latest revision, it includes all the capabilities already present in the `3daxis` version, and the ability to define and plot _single variabile linear functions_ graphs through the _Desk_ instructions, with enhanced navigation functionalities.  
 
 The following specifications are referred to both versions, each section will include a separate paragraph for functionalities specific to the `3dfunc` version.
 
