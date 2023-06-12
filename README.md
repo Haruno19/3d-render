@@ -89,7 +89,6 @@ My goal with this project is to keep adding new features, like rendering functio
 Every major functionality upgrade will come in as a separate revision of the sketch.
 
 # Desk Example
-Example of _Desk_ file:  
 
 <table>
   <tr>
@@ -110,7 +109,7 @@ Example of _Desk_ file:
   </tr>
   <tr>
     <td>
-      <code>3dfunc</code> only instruction set
+      <code>3dfunc</code>-only instruction set
     </td>
     <td>
        <i>Function mode view</i>
@@ -126,7 +125,7 @@ Example of _Desk_ file:
       <img width="400" align="left" alt="Screenshot 2023-01-27 at 17 21 46" src="https://github.com/Haruno19/3d-render/assets/61376940/db950303-f308-42d3-ade5-27f4e098fa1e"> 
     </td>
   </tr>
-
+</table>
 
 # Themes
 <table><tr>
