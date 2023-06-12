@@ -116,10 +116,10 @@ Example of _Desk_ file:
       <code>func 0.4 3</code><br>
     </td>
     <td>
-      <img width="400" align="left" alt="Screenshot 2023-01-27 at 17 21 46" src="https://user-images.githubusercontent.com/61376940/215144163-2b13a30f-9cf3-4931-bade-6756ac2af021.png"> 
+      <img width="400" align="left" alt="Screenshot 2023-01-27 at 17 21 46" src="https://github.com/Haruno19/3d-render/assets/61376940/db950303-f308-42d3-ade5-27f4e098fa1e"> 
     </td>
   </tr>
-</table>
+
 
 # Themes
 <table><tr>
