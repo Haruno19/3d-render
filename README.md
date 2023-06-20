@@ -179,4 +179,4 @@ Every major functionality upgrade will come in as a separate revision of the ske
 # Demo
 https://user-images.githubusercontent.com/61376940/215154314-eb326c37-a95e-4946-baa4-356dee113c8d.mov
 
-##### _The above demostration video shows and overview of the functionalities included with the `3daxis` version of the sketch. Please refer to the [Gallery](https://github.com/Haruno19/3d-render#Gallery) section to see screenshots of the functionalities specific to the `3dfunc` revision._
+##### _The above demostration video shows and overview of the functionalities included with the `3daxis` version of the sketch. Please refer to the [Gallery](https://github.com/Haruno19/3d-render#Gallery) section to see screenshots of the functionalities specific to the `3dfunc` and `3ddiff` revisions._
