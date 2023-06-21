@@ -2,7 +2,8 @@
 
 A Processing project to render $\mathbb{R}^3$ vectors.
 
-<img width="32%" alt="Screenshot 2023-01-19 at 18 51 20" src="https://github.com/Haruno19/3d-render/assets/61376940/d342e450-520a-4e5b-b013-e5e49bb42e4c"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 10" src="https://github.com/Haruno19/3d-render/assets/61376940/89a0a979-9270-41e5-8573-04d02b407235"> <img width="32%" alt="Screenshot 2023-01-19 at 18 50 22" src="https://github.com/Haruno19/3d-render/assets/61376940/4ee437a5-61dc-4616-8019-e4c8c14c7bea"> 
+<img width="32%" alt="Screenshot 2023-01-19 at 18 51 20" src="https://github.com/Haruno19/3d-render/assets/61376940/d342e450-520a-4e5b-b013-e5e49bb42e4c"> <img width="32%" alt="Screenshot 2023-01-19 at 18 51 10" src="https://github.com/Haruno19/3d-render/assets/61376940/89a0a979-9270-41e5-8573-04d02b407235"> <img width="32%" alt="Screenshot 2023-06-20 at 22 31 21" src="https://github.com/Haruno19/3d-render/assets/61376940/7a9e648f-68e8-4b2f-9f3b-bd2d35726571">
+
 
 # Versions
 
@@ -14,9 +15,10 @@ You'll find three different versions of the sketch in the `source` folder: coden
 The following specifications are referred to every versions, each section will include a separate paragraph for functionalities specific to the `3dfunc` and `3ddiff` versions.
 
 # Gallery
-<img width="32%" alt="Screenshot 2023-06-12 at 21 50 37" src="https://github.com/Haruno19/3d-render/assets/61376940/20a7c452-5bd0-4637-867e-c2c27ae2adfe"> <img width="32%" alt="Screenshot 2023-06-12 at 21 47 57" src="https://github.com/Haruno19/3d-render/assets/61376940/283d7872-7c0e-41b8-984e-d92827fc8ecf"> <img width="32%" alt="Screenshot 2023-06-12 at 21 46 36" src="https://github.com/Haruno19/3d-render/assets/61376940/f33c5922-55a3-47a4-82ca-959a16f70f09">
-<img width="32%" alt="Screenshot 2023-06-12 at 21 35 14" src="https://github.com/Haruno19/3d-render/assets/61376940/a1851f47-6d76-4ce5-9f48-bd36533a860a"> <img width="32%" alt="Screenshot 2023-06-12 at 22 12 35" src="https://github.com/Haruno19/3d-render/assets/61376940/c42c7706-d88a-4957-8516-f3d982882230"> <img width="32%" alt="Screenshot 2023-06-12 at 22 04 49" src="https://github.com/Haruno19/3d-render/assets/61376940/ac4cb9d1-e49c-4fdc-bc39-a60aa1c74691">
-<img width="32%" alt="Screenshot 2023-06-20 at 22 35 05" src="https://github.com/Haruno19/3d-render/assets/61376940/de524fde-b88a-47e0-9726-f347c3c1b7cc"> <img width="32%" alt="Screenshot 2023-06-20 at 22 52 16" src="https://github.com/Haruno19/3d-render/assets/61376940/41e3aa22-0d53-4692-b0a0-9a85c06421db"> <img width="32%" alt="Screenshot 2023-06-20 at 22 31 21" src="https://github.com/Haruno19/3d-render/assets/61376940/7a9e648f-68e8-4b2f-9f3b-bd2d35726571"> 
+<img width="32%" alt="Screenshot 2023-06-12 at 21 50 37" src="https://github.com/Haruno19/3d-render/assets/61376940/20a7c452-5bd0-4637-867e-c2c27ae2adfe"> <img width="32%" alt="Screenshot 2023-06-12 at 21 47 57" src="https://github.com/Haruno19/3d-render/assets/61376940/283d7872-7c0e-41b8-984e-d92827fc8ecf"> <img width="32%" alt="Screenshot 2023-06-12 at 22 04 49" src="https://github.com/Haruno19/3d-render/assets/61376940/ac4cb9d1-e49c-4fdc-bc39-a60aa1c74691">
+<img width="32%" alt="Screenshot 2023-06-12 at 21 46 36" src="https://github.com/Haruno19/3d-render/assets/61376940/f33c5922-55a3-47a4-82ca-959a16f70f09"> <img width="32%" alt="Screenshot 2023-06-12 at 22 12 35" src="https://github.com/Haruno19/3d-render/assets/61376940/c42c7706-d88a-4957-8516-f3d982882230"> <img width="32%" alt="Screenshot 2023-06-12 at 21 35 14" src="https://github.com/Haruno19/3d-render/assets/61376940/a1851f47-6d76-4ce5-9f48-bd36533a860a">
+<img width="32%" alt="Screenshot 2023-06-20 at 22 35 05" src="https://github.com/Haruno19/3d-render/assets/61376940/de524fde-b88a-47e0-9726-f347c3c1b7cc"> <img width="32%" alt="Screenshot 2023-06-20 at 22 52 16" src="https://github.com/Haruno19/3d-render/assets/61376940/41e3aa22-0d53-4692-b0a0-9a85c06421db"> <img width="32%" alt="Screenshot 2023-01-19 at 18 50 22" src="https://github.com/Haruno19/3d-render/assets/61376940/4ee437a5-61dc-4616-8019-e4c8c14c7bea"> 
+
 
 # Usage  
 
@@ -104,8 +106,15 @@ This means of course, that `points` stores also fundamental points, such as:
 - `[index 4]` the $z$ Axis
 I believe this design choice significantly reduces complexity by removing the need for other global variables.
 
+#### [ _3ddiff rev. specific_ ]
+In the `3ddiff` revision, for convenience, the mathematical concept of "differential equation" is impelemented as a new class `diff_eq` that contains all and only the attributes and methods directly related to differential equations (such as calculating the $\theta$ and $\dot\theta$ values and adding them to the rendered space). 
+However, not to go against my own values and vision for this project, the `diff_eq` class is nothing more than an higher level of abstraction that ultimately relies on the sole _"meaningful"_ data structure, that is the `point` class. Even the methods used to add the equation's points the system are of course the ones already defined in the `point` class.   
+
+I'd like to think of this addition not as a structural change in the program's functionalities, but rather as a new, separate, "block" that is able to work on top of the already existing system without the need to change its core. 
+This is the main reason I'm treating every update as a new, distinct revision of the sketch; the basic `3daxis` version one is already capeable of everything, since everything in $\mathbb{R}^3$ can be represented as a vector or a collection of them, the revisions are just there to add a more standardized and accessible way to abstract other mathematical concepts on top of vectors. 
+
 # Goal
-My goal with this project is to keep adding new features, like rendering function graphs or shapes, and creating a full fledged ℝ³ environemnt.  
+My goal with this project is to keep adding new abstractions and features to ultimately create a full fledged $\mathbb{R}^3$ environemnt.  
 Every major functionality upgrade will come in as a separate revision of the sketch.
 
 # Desk Example
