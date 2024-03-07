@@ -8,9 +8,9 @@ A Processing project to render $\mathbb{R}^3$ vectors.
 # Versions
 
 You'll find three different versions of the sketch in the `source` folder: codename `3daxis`, codenme `3dfunc` and codename `3ddiff`.  
-- `3daxis` is the basic version that offers the capabilities to render simple concepts, points and lines, through the _Desk_ instructions, with basic navigation functionalities. 
-- `3dfunc` is the first big revision, it includes all the capabilities of the `3daxis` version, plus the ability to define and plot _single variabile linear functions_ graphs through the _Desk_ instructions, with enhanced navigation functionalities.
-- `3ddiff` is the latest revision, it includes all the capabilities of the `3dfunc` version, plus the ability to plot a graph of the differential equation that describes the mechanics of a pendulum using the $XY$ plane as a (sort of) [phase space](https://en.wikipedia.org/wiki/Phase_space) in which the $x$ coordinates represents the pendulum angle $\theta$, and the $y$ coordinates the angular velocity $\dot\theta$ of the pendulum.
+- `3daxis` is the basic version that offers the features to render simple concepts, points and lines, through the _Desk_ instructions, with basic navigation functionalities. 
+- `3dfunc` is the first big revision, it includes all the features of the `3daxis` version, plus the ability to define and plot _single variabile linear functions_ graphs through the _Desk_ instructions, with enhanced navigation functionalities.
+- `3ddiff` is the latest revision, it includes all the features of the `3dfunc` version, plus the ability to plot a graph of the differential equation that describes the mechanics of a pendulum using the $XY$ plane as a (sort of) [phase space](https://en.wikipedia.org/wiki/Phase_space) in which the $x$ coordinates represents the pendulum angle $\theta$, and the $y$ coordinates the angular velocity $\dot\theta$ of the pendulum.
 
 The following specifications are referred to every versions, each section will include a separate paragraph for functionalities specific to the `3dfunc` and `3ddiff` versions.
 
